@@ -1,0 +1,24 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+PATH = "C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(PATH)
+
+driver.get("https://www.playtech.ee")
+print(driver.title)
+
+search = driver.find_element_by_name("Internship")
+search.send_keys(Keys.RETURN)
+
+try:
+  main = WebDriverWait(drive, 10).until(
+      EC.presence_ofOelement_located((By.NAME, "Development QA Engineer"))
+  )
+except:
+  driver.quit()
+  
+print(main.text)
+
+
+driver.quit()
